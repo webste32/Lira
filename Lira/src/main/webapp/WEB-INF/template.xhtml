@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="main.css"  />
+	<title><ui:insert name="title">Lira</ui:insert></title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700,300' rel='stylesheet' type='text/css' />
+
+</h:head>
+
+<h:body>
+<h:form>
+<div id="bodyWrapper">
+<div id="header">
+
+		<div id="headerText">Lira</div>
+			<div id="navigation">
+		<ul class="navigation">
+			<li class="navigation-link">
+				<a href="/pages/index.xhtml">Home</a>
+			</li>
+			<li class="navigation-link">
+				<a href="/pages/about.xhtml">About</a>
+			</li>
+			<li class="navigation-link">
+				<a href="/pages/login.xhtml">Log In</a>
+			</li>
+		</ul>
+
+	</div>
+	</div>
+	
+
+	<div id="content">
+		<ui:insert name="content"></ui:insert>
+	</div>
+	
+	<div id="rightSidebar">
+	sidebar text testing! rawr! lots and lots and lots of testing! woohoo!
+	</div>
+	</div>	
+	<div id="footer">
+	
+	</div>
+	
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,102 @@
+<ui:composition template="/WEB-INF/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">
+		Lira | Survey
+	</ui:define>
+
+	<ui:define name="content">
+
+		<p:wizard flowListener="#{surveyBean.onFlowProcess}">
+			<p:tab id="demographics" title="Demographics">
+				<p:panel header="Personal Details">
+
+					<h:messages errorClass="error" />  
+               		 None of the information in this survey is required except for income. However, 
+               		 we highly recommend providing as much information as you feel comfortable with, 
+               		 as it allows Lira to provide you with a more customized recommendation.
+                  
+            	    <h:panelGrid columns="2" columnClasses="label, value"
+						styleClass="grid">
+						
+						<h:outputText value="Zip code: " />
+						<p:inputText required="true" label="Zip code" value="#{surveyBean.user.survey.zipCode}" />
+						
+						
+					</h:panelGrid>
+				</p:panel>
+			</p:tab>
+
+			<p:tab id="income" title="Income">
+				<p:panel header="Income Details">
+					<h:messages errorClass="error" />  
+					Please give Lira some details about your income. You can give your annual, 
+					monthly, biweekly, or weekly income by selecting one of the income periods 
+					from the dropdown box below.
+					Preferably, give your net income <i>after</i> withholdings (taxes).                  
+             	   <h:panelGrid columns="2" columnClasses="label, value"
+						styleClass="grid">
+						<h:outputText value="Income: " />
+						<p:inputText required="true" label="asda" value="#{surveyBean.user.survey.income}" />
+						
+						<h:selectOneMenu value="#{surveyBean.user.survey.payPeriod}">
+							<f:selectItems value="#{surveyBean.periods}" var="period" itemValue="#{period}" itemLabel="#{period.label}" />
+						</h:selectOneMenu>
+						
+						
+						<h:outputText value="#{surveyBean.user.survey.zipCode}" />
+					</h:panelGrid>
+				</p:panel>
+			</p:tab>
+
+			<p:tab id="expenditures" title="Expenditures">
+				<p:panel header="Expenditures">
+					<h:messages errorClass="error" />  
+					Tell us a little bit about your usual expenditures. If you don't normally spend 
+					money in that category, enter 0. Inclue mortgages and rent in the 'housing' category, 
+					but don't include other 
+					debts such as student loans or credit cards.
+
+
+					Enter custom expenditure areas below. Click on the '+' to add additional fields.               
+             	   <h:panelGrid columns="2" columnClasses="label, value"
+						styleClass="grid">
+
+					</h:panelGrid>
+				</p:panel>
+			</p:tab>
+
+			<p:tab id="debt" title="Debt">
+				<p:panel header="Debt Details">
+
+					<h:messages errorClass="error" />  
+					Do you have any outstanding debts? Please enter the total amount, minimum monthly payment, 
+					and interest rate below.                  
+             	   <h:panelGrid columns="2" columnClasses="label, value"
+						styleClass="grid">
+
+					</h:panelGrid>
+				</p:panel>
+			</p:tab>
+			
+			<p:tab id="confirm" title="Confirm">
+				<p:panel header="Debt Details">
+
+					<h:messages errorClass="error" />  
+					Confirm the survey data you've just entered.
+					<h:panelGrid columns="2" columnClasses="label, value"
+						styleClass="grid">
+
+					</h:panelGrid>
+				</p:panel>
+			</p:tab>
+
+		</p:wizard>
+
+	</ui:define>
+
+</ui:composition>
